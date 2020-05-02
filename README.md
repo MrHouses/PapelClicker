@@ -1,0 +1,2 @@
+# PapelClicker
+Idle Game Android
