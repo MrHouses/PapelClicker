@@ -20,13 +20,13 @@ public class ShopScript : MonoBehaviour
     void Start()
     {
         PopulateShop();   
-        SkinActual.GetComponent<Image>().sprite = BotonSkinActual.GetComponent<Image>().sprite;
+//        SkinActual.GetComponent<Image>().sprite = BotonSkinActual.GetComponent<Image>().sprite;
     }
 
 
     void Update()
     {
-        Papel.text = "Papel: " +   Contadores.GetComponent<IdleController>().papel.ToString("F0");
+        //Papel.text = "Papel: " +   Contadores.GetComponent<IdleController>().papel.ToString("F0");
     }
 
     private void PopulateShop()
@@ -40,7 +40,7 @@ public class ShopScript : MonoBehaviour
             itemObject.transform.GetChild(1).GetComponent<Image>().sprite = si.Sprite;
 
             itemObject.GetComponent<Button>().onClick.AddListener(()=> OnButtonClick(si,itemObject));
-            itemObject.transform.GetChild(2).GetComponent<Button>().onClick.AddListener(()=> OnButtonClickPoner(si,BotonSkinActual));
+            //itemObject.transform.GetChild(2).GetComponent<Button>().onClick.AddListener(()=> OnButtonClickPoner(si,BotonSkinActual));
 
             if(si.Comprado)
             {
@@ -88,7 +88,7 @@ public class ShopScript : MonoBehaviour
         Debug.Log("CLICK POINER");
         Debug.Log(GO3.GetComponent<Image>().sprite);
         Debug.Log(Item2.Sprite);
-        GO3.GetComponent<Image>().sprite = Item2.Sprite;
+        //GO3.GetComponent<Image>().sprite = Item2.Sprite;
 
     }
 

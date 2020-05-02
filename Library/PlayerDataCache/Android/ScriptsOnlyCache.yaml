@@ -4,7 +4,10 @@ ScriptsOnlyBuild:
     - GoogleMobileAds.Editor.GoogleMobileAdsSettings
     Assembly-CSharp.dll:
     - Anuncios
-    - GoogleMobileAds.Common.MobileAdsEventExecutor
+    - CompadreScript
+    - IdleController
+    - ShopItem
+    - ShopScript
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.Tilemap.Editor.dll:
@@ -25,7 +28,10 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
+    - UnityEngine.UI.GridLayoutGroup
     - UnityEngine.UI.Image
+    - UnityEngine.UI.RectMask2D
+    - UnityEngine.UI.ScrollRect
     - UnityEngine.UI.Text
   sceneClasses:
     Assets/Scenes/SampleScene.unity:
@@ -46,23 +52,37 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11168}
+      Script: {instanceID: 11302}
     - Class: 114
-      Script: {instanceID: 11454}
+      Script: {instanceID: 11608}
     - Class: 114
-      Script: {instanceID: 11508}
+      Script: {instanceID: 11664}
     - Class: 114
-      Script: {instanceID: 12168}
+      Script: {instanceID: 11740}
     - Class: 114
-      Script: {instanceID: 12866}
+      Script: {instanceID: 11782}
     - Class: 114
-      Script: {instanceID: 13622}
+      Script: {instanceID: 12030}
     - Class: 114
-      Script: {instanceID: 14232}
+      Script: {instanceID: 12166}
     - Class: 114
-      Script: {instanceID: 19520}
+      Script: {instanceID: 12254}
     - Class: 114
-      Script: {instanceID: 19874}
+      Script: {instanceID: 12378}
+    - Class: 114
+      Script: {instanceID: 12762}
+    - Class: 114
+      Script: {instanceID: 13086}
+    - Class: 114
+      Script: {instanceID: 13150}
+    - Class: 114
+      Script: {instanceID: 13978}
+    - Class: 114
+      Script: {instanceID: 14624}
+    - Class: 114
+      Script: {instanceID: 14628}
+    - Class: 114
+      Script: {instanceID: 14708}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -172,6 +192,12 @@ ScriptsOnlyBuild:
     className: TMP_InputField
   - hash:
       serializedVersion: 2
+      Hash: d61b1bea16d4d74af3b0916dd245a886
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ShopItem
+  - hash:
+      serializedVersion: 2
       Hash: 7ab0e790220bdca831fdd886b339039d
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -250,10 +276,22 @@ ScriptsOnlyBuild:
     className: AnimationPlayableAsset
   - hash:
       serializedVersion: 2
+      Hash: 02657dded452f2e9f9d8019a40fe2103
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CompadreScript
+  - hash:
+      serializedVersion: 2
       Hash: aba7b2852ef61d175dd9602e7723d5e5
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Mask
+  - hash:
+      serializedVersion: 2
+      Hash: d80920b45bedcf62c57b3cd5af8810d5
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ShopScript
   - hash:
       serializedVersion: 2
       Hash: caa533b001ae39b864ba8425019e2268
@@ -340,6 +378,12 @@ ScriptsOnlyBuild:
     className: RemoteTestResultSender
   - hash:
       serializedVersion: 2
+      Hash: 6fb512c6733e02f441372611e6f94f11
+    assemblyName: Assembly-CSharp-Editor.dll
+    namespaceName: GoogleMobileAds.Editor
+    className: GoogleMobileAdsSettings
+  - hash:
+      serializedVersion: 2
       Hash: 4fd8bf02e3089425d3502e26c44ba31a
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -356,6 +400,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: RawImage
+  - hash:
+      serializedVersion: 2
+      Hash: e2a0e9d600ac2e2065012417f8ed74bf
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TouchUpdgrade
   - hash:
       serializedVersion: 2
       Hash: 5ad4aa237d47ac2bab17bacb672edf7a
@@ -422,6 +472,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: TimelineAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: GoogleMobileAds.Common
+    className: MobileAdsEventExecutor
   - hash:
       serializedVersion: 2
       Hash: 8001a5f7502aab37e42206da015e6914
@@ -526,6 +582,12 @@ ScriptsOnlyBuild:
     className: StandaloneInputModule
   - hash:
       serializedVersion: 2
+      Hash: b213ffbea71de0349db03b547571176d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: IdleController
+  - hash:
+      serializedVersion: 2
       Hash: aa88ae22474df55295327e4ee99e5a24
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -550,59 +612,17 @@ ScriptsOnlyBuild:
     className: ToggleGroup
   - hash:
       serializedVersion: 2
-      Hash: c3d3430df9e3ea95e3e3d587961390fb
-    assemblyName: Unity.Timeline.dll
-    namespaceName: UnityEngine.Timeline
-    className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 6fb512c6733e02f441372611e6f94f11
-    assemblyName: Assembly-CSharp-Editor.dll
-    namespaceName: GoogleMobileAds.Editor
-    className: GoogleMobileAdsSettings
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: GoogleMobileAds.Common
-    className: MobileAdsEventExecutor
-  - hash:
-      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Anuncios
   - hash:
       serializedVersion: 2
-      Hash: d61b1bea16d4d74af3b0916dd245a886
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: ShopItem
-  - hash:
-      serializedVersion: 2
-      Hash: 02657dded452f2e9f9d8019a40fe2103
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: CompadreScript
-  - hash:
-      serializedVersion: 2
-      Hash: d80920b45bedcf62c57b3cd5af8810d5
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: ShopScript
-  - hash:
-      serializedVersion: 2
-      Hash: e2a0e9d600ac2e2065012417f8ed74bf
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: TouchUpdgrade
-  - hash:
-      serializedVersion: 2
-      Hash: b213ffbea71de0349db03b547571176d
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: IdleController
+      Hash: c3d3430df9e3ea95e3e3d587961390fb
+    assemblyName: Unity.Timeline.dll
+    namespaceName: UnityEngine.Timeline
+    className: PlayableTrack
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/MrHouses/Prueba 2/PapelClicker.apk
+  playerPath: C:/Users/MrHouses/Documents/GitHub/PapelClicker/PapelClicker.apk
