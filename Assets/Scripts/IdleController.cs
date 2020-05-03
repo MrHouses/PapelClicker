@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 using UnityEngine.UI;
 
 public class IdleController : MonoBehaviour
@@ -15,6 +16,8 @@ public class IdleController : MonoBehaviour
     public ParticleSystem ClickParticles;
 
     public GameObject SkinActual;
+
+    public Image SkinInicial;
     public GameObject Tienda;
 
     public double PapelxSecond = 0;
@@ -78,13 +81,18 @@ public class IdleController : MonoBehaviour
     public GameObject PanelCompadres;
     public GameObject PanelTienda;
 
+        void Awake() {
 
-
+       Sprite myFruit = Resources.Load<Sprite>("Papel");
+       SkinActual.GetComponent<Image>().sprite = myFruit ;
+    
+       }
     // Start is called before the first frame update
     void Start()
     {
         papel = 0;
         Cargar();
+       
     }
 
     // Update is called once per frame
@@ -99,7 +107,6 @@ public class IdleController : MonoBehaviour
         GeneracionCompadre1.text = Compadre1.GetComponent<CompadreScript>().papelXSegundoCompadre.ToString("F1") + " PAPEL/SEG";
         CostoCompadre1.text = Compadre1.GetComponent<CompadreScript>().precioCompadre.ToString("F0") + " PAPELES";
 
-        Debug.Log(SkinActual.GetComponent<Image>().sprite);
         Guardar();
     }
 
@@ -179,7 +186,12 @@ public class IdleController : MonoBehaviour
               PlayerPrefs.SetString("ObjTiendaNombre"+i.ToString(),Tienda.GetComponent<ShopScript>().ShopItems[i].Nombre.ToString());
        
        }
-       //
+
+       Debug.Log(SkinActual.GetComponent<Image>().sprite.ToString());
+       PlayerPrefs.SetString("Skin",SkinActual.GetComponent<Image>().sprite.ToString());     
+       
+       
+
       //
       /*
        Compadre2.GetComponent<CompadreScript>().papelXSegundoCompadre
@@ -251,6 +263,16 @@ public class IdleController : MonoBehaviour
              Tienda.GetComponent<ShopScript>().ShopItems[i].Nombre   = PlayerPrefs.GetString("ObjTiendaNombre"+i.ToString(),Tienda.GetComponent<ShopScript>().ShopItems[i].Nombre.ToString());
        
        }
+
+       string skinGuardo =PlayerPrefs.GetString("Skin","Papel");       
+       int index = skinGuardo.IndexOf(" ");
+       if (index > 0)
+       skinGuardo = skinGuardo.Substring(0, index);
+
+       Debug.Log(skinGuardo);
+       Sprite myFruit = Resources.Load<Sprite>(skinGuardo);
+       SkinActual.GetComponent<Image>().sprite = myFruit;
+
 
 
               //
