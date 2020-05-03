@@ -40,13 +40,13 @@ public class ShopScript : MonoBehaviour
             itemObject.transform.GetChild(1).GetComponent<Image>().sprite = si.Sprite;
 
             itemObject.GetComponent<Button>().onClick.AddListener(()=> OnButtonClick(si,itemObject));
-            //itemObject.transform.GetChild(2).GetComponent<Button>().onClick.AddListener(()=> OnButtonClickPoner(si,BotonSkinActual));
+            itemObject.transform.GetChild(2).GetComponent<Button>().onClick.AddListener(()=> OnButtonClickPoner(si,BotonSkinActual));
 
             if(si.Comprado)
             {
                 itemObject.transform.GetChild(1).GetComponent<Image>().color = Color.white;
                 itemObject.transform.GetChild(0).GetComponent<Text>().enabled = false;
-                itemObject.transform.GetChild(2).GetComponent<Button>().interactable = true;
+                itemObject.transform.GetChild(2).gameObject.SetActive(true);
             }
             else 
             {
@@ -88,7 +88,7 @@ public class ShopScript : MonoBehaviour
         Debug.Log("CLICK POINER");
         Debug.Log(GO3.GetComponent<Image>().sprite);
         Debug.Log(Item2.Sprite);
-        //GO3.GetComponent<Image>().sprite = Item2.Sprite;
+        GO3.GetComponent<Image>().sprite = Item2.Sprite;
 
     }
 

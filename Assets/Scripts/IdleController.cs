@@ -14,6 +14,7 @@ public class IdleController : MonoBehaviour
     public double TouchUpdgradeCost = 50;
     public ParticleSystem ClickParticles;
 
+    public GameObject SkinActual;
     public GameObject Tienda;
 
     public double PapelxSecond = 0;
@@ -97,6 +98,8 @@ public class IdleController : MonoBehaviour
 
         GeneracionCompadre1.text = Compadre1.GetComponent<CompadreScript>().papelXSegundoCompadre.ToString("F1") + " PAPEL/SEG";
         CostoCompadre1.text = Compadre1.GetComponent<CompadreScript>().precioCompadre.ToString("F0") + " PAPELES";
+
+        Debug.Log(SkinActual.GetComponent<Image>().sprite);
         Guardar();
     }
 
@@ -167,8 +170,15 @@ public class IdleController : MonoBehaviour
        PlayerPrefs.SetString("numeroCompadres1",Compadre1.GetComponent<CompadreScript>().numeroComapadres.ToString());
        PlayerPrefs.SetString("PrecioCompadre1",Compadre1.GetComponent<CompadreScript>().precioCompadre.ToString());
        //Prueba
-       //PlayerPrefs.SetString("ObjTienda1",JsonUtility.ToJson(Tienda.GetComponent<ShopScript>().ShopItems[0]));
-       //Debug.Log(JsonUtility.ToJson(Tienda.GetComponent<ShopScript>().ShopItems[0]));
+       int lenghtShopItems = Tienda.GetComponent<ShopScript>().ShopItems.Length;
+       for(int i=0 ;i < Tienda.GetComponent<ShopScript>().ShopItems.Length ;i++)
+       {
+              PlayerPrefs.SetString("ObjTiendaPrecio"+i.ToString(),Tienda.GetComponent<ShopScript>().ShopItems[i].Precio.ToString());
+              //PlayerPrefs.SetString("ObjTiendaSprite"+i.ToString(),Tienda.GetComponent<ShopScript>().ShopItems[i].Sprite.ToString());
+              PlayerPrefs.SetString("ObjTiendaComprado"+i.ToString(),Tienda.GetComponent<ShopScript>().ShopItems[i].Comprado.ToString());
+              PlayerPrefs.SetString("ObjTiendaNombre"+i.ToString(),Tienda.GetComponent<ShopScript>().ShopItems[i].Nombre.ToString());
+       
+       }
        //
       //
       /*
@@ -228,11 +238,21 @@ public class IdleController : MonoBehaviour
     {
        papel = double.Parse(PlayerPrefs.GetString("PapelGeneral","0"));
        //
+       int lenghtShopItems = Tienda.GetComponent<ShopScript>().ShopItems.Length;
        Compadre1.GetComponent<CompadreScript>().papelXSegundoCompadre = double.Parse(PlayerPrefs.GetString("PapelXSegundoCompadre1","0.1"));
        Compadre1.GetComponent<CompadreScript>().numeroComapadres =  double.Parse(PlayerPrefs.GetString("numeroCompadres1","0"));
        Compadre1.GetComponent<CompadreScript>().precioCompadre = double.Parse(PlayerPrefs.GetString("PrecioCompadre1","15"));
        //JsonUtility.FromJsonOverwrite(PlayerPrefs.GetString("ObjTienda1"),Tienda.GetComponent<ShopScript>().ShopItems[0]);
+       for(int i=0 ;i < lenghtShopItems ;i++)
+       {
+             Tienda.GetComponent<ShopScript>().ShopItems[i].Precio  = double.Parse(PlayerPrefs.GetString("ObjTiendaPrecio"+i.ToString(),Tienda.GetComponent<ShopScript>().ShopItems[i].Precio.ToString()));
+            // Tienda.GetComponent<ShopScript>().ShopItems[i].Sprite  = PlayerPrefs.GetString("ObjTiendaSprite"+i.ToString(),Tienda.GetComponent<ShopScript>().ShopItems[i].Sprite.ToString());
+             Tienda.GetComponent<ShopScript>().ShopItems[i].Comprado = bool.Parse(PlayerPrefs.GetString("ObjTiendaComprado"+i.ToString(),Tienda.GetComponent<ShopScript>().ShopItems[i].Comprado.ToString()));
+             Tienda.GetComponent<ShopScript>().ShopItems[i].Nombre   = PlayerPrefs.GetString("ObjTiendaNombre"+i.ToString(),Tienda.GetComponent<ShopScript>().ShopItems[i].Nombre.ToString());
        
+       }
+
+
               //
       //
       /*

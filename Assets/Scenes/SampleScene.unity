@@ -659,7 +659,8 @@ MonoBehaviour:
   TouchUpdgradesLevel: 1
   TouchUpdgradeCost: 50
   ClickParticles: {fileID: 0}
-  Tienda: {fileID: 0}
+  SkinActual: {fileID: 1018392366}
+  Tienda: {fileID: 1387797811}
   PapelxSecond: 0
   Compadre1: {fileID: 528686745}
   CostoCompadre1: {fileID: 630343384}
@@ -2661,7 +2662,7 @@ MonoBehaviour:
   Contadores: {fileID: 352309869}
   Papel: {fileID: 0}
   PapelxSegundos: {fileID: 0}
-  BotonSkinActual: {fileID: 0}
+  BotonSkinActual: {fileID: 1018392366}
   SkinActual: {fileID: 0}
   shopContainer: {fileID: 1456136525}
   shopItemPrefab: {fileID: 3530123991678807159, guid: 59bd7811490e01d499ef979cc5902870,

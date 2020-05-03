@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Precio: 100
   Sprite: {fileID: 21300000, guid: 92a7181a89112384b8f0911683cffa36, type: 3}
-  Comprado: 0
+  Comprado: 1
   Nombre: Papel
