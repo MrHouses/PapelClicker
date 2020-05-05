@@ -13,6 +13,9 @@ public class IdleController : MonoBehaviour
     public double TouchValue = 1;
     public double TouchUpdgradesLevel = 1;
     public double TouchUpdgradeCost = 50;
+    public AudioClip audioClick;
+    private AudioSource audioPlayer;
+
     public ParticleSystem ClickParticles;
 
     public GameObject SkinActual;
@@ -28,6 +31,7 @@ public class IdleController : MonoBehaviour
     public GameObject Compadre1;
     public Text CostoCompadre1;
     public Text GeneracionCompadre1;
+    public Text NumCompadre1;
     
     //--- COMPADRE 2---//
     public GameObject Compadre2;
@@ -90,6 +94,7 @@ public class IdleController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+           audioPlayer = GetComponent<AudioSource>();
         papel = 0;
         Cargar();
        
@@ -113,6 +118,8 @@ public class IdleController : MonoBehaviour
     public void Click()
     {
         papel= papel + TouchValue;
+        audioPlayer.clip = audioClick;
+        audioPlayer.Play();
     }
 
      public void ClickUpdgrades()
