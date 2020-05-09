@@ -29,6 +29,7 @@ public class ShopScript : MonoBehaviour
         //Papel.text = "Papel: " +   Contadores.GetComponent<IdleController>().papel.ToString("F0");
     }
 
+    
     private void PopulateShop()
     {
          for(int i=0;i< ShopItems.Length;i++)

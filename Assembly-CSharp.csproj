@@ -94,6 +94,7 @@
      <Compile Include="Assets\Scripts\Anuncios.cs" />
      <Compile Include="Assets\Scripts\CompadreScript.cs" />
      <Compile Include="Assets\Scripts\IdleController.cs" />
+     <Compile Include="Assets\Scripts\MuseoScript.cs" />
      <Compile Include="Assets\Scripts\ShopItem.cs" />
      <Compile Include="Assets\Scripts\ShopScript.cs" />
      <Compile Include="Assets\Scripts\TouchUpdgrade.cs" />

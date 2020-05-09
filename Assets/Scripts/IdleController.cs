@@ -81,7 +81,7 @@ public class IdleController : MonoBehaviour
 
 
     // Paneles de Configuracion
-    public GameObject PanelUpdgrades;
+    public GameObject PanelMuseo;
     public GameObject PanelCompadres;
     public GameObject PanelTienda;
 
@@ -145,6 +145,15 @@ public class IdleController : MonoBehaviour
      public void CloseTienda()
     {
         PanelTienda.gameObject.SetActive(false);
+    }
+    public void ClickMuseo()
+    {
+        PanelMuseo.gameObject.SetActive(true);
+    }
+
+     public void CloseMuseo()
+    {
+        PanelMuseo.gameObject.SetActive(false);
     }
 
 

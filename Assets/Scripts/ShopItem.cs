@@ -11,5 +11,6 @@ public class ShopItem : ScriptableObject
     public Sprite Sprite;
     public bool Comprado;
     public string Nombre;
+    public string Descripcion;
 
 }
