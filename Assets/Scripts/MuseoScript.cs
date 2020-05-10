@@ -8,8 +8,8 @@ public class MuseoScript : MonoBehaviour
     [SerializeField] public ShopItem[] ShopItems;
     [SerializeField] public Transform shopContainer;
     [SerializeField] public GameObject shopItemPrefab;
-    
 
+    GameObject[] enemies;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +19,18 @@ public class MuseoScript : MonoBehaviour
 
     void OnEnable() {
         PopulateMuseo();       
+         enemies = GameObject.FindGameObjectsWithTag("Museo");
+    }
+    
+    void OnDisable() {
+          
+          foreach(GameObject enemy in enemies)
+          {
+              GameObject.Destroy(enemy);
+              
+          }
+            
+        
     }
 
 
@@ -34,17 +46,17 @@ public class MuseoScript : MonoBehaviour
             ShopItem si = ShopItems[i];
             GameObject itemObject = Instantiate(shopItemPrefab,shopContainer);
 
-            itemObject.transform.GetChild(2).GetComponent<Image>().sprite = si.Sprite;
-            itemObject.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(()=> OnButtonClick(si,itemObject));
+            itemObject.transform.GetChild(0).GetComponent<Image>().sprite = si.Sprite;
+            
 
             if(si.Comprado)
             {
-                itemObject.transform.GetChild(2).GetComponent<Image>().color = Color.white;
+                itemObject.transform.GetChild(0).GetComponent<Image>().color = Color.white;
 
             }
             else 
             {
-                itemObject.transform.GetChild(2).GetComponent<Image>().color = Color.black;
+                itemObject.transform.GetChild(0).GetComponent<Image>().color = Color.black;
 
             }
 

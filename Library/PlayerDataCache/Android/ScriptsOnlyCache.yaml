@@ -6,16 +6,25 @@ ScriptsOnlyBuild:
     - Anuncios
     - CompadreScript
     - IdleController
+    - MuseoScript
     - ShopItem
     - ShopScript
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
+    - UnityEditor.Tilemaps.GridPaletteBrushes
+    - UnityEditor.Tilemaps.GridPalettes
     - UnityEditor.Tilemaps.SceneViewGridManager
     - UnityEditor.Tilemaps.TileDragAndDropManager
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
+    UnityEditor.Graphs.dll:
+    - UnityEditor.Graphs.AnimationBlendTree.Graph
+    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.Graph
+    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -27,6 +36,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.GridLayoutGroup
+    - UnityEngine.UI.HorizontalLayoutGroup
     - UnityEngine.UI.Image
     - UnityEngine.UI.RectMask2D
     - UnityEngine.UI.ScrollRect
@@ -45,7 +55,17 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
     - Class: 81
+      Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
@@ -68,19 +88,23 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12378}
     - Class: 114
-      Script: {instanceID: 12762}
+      Script: {instanceID: 12690}
     - Class: 114
-      Script: {instanceID: 13086}
+      Script: {instanceID: 12764}
     - Class: 114
-      Script: {instanceID: 13150}
+      Script: {instanceID: 13088}
     - Class: 114
-      Script: {instanceID: 13978}
+      Script: {instanceID: 13152}
     - Class: 114
-      Script: {instanceID: 14624}
+      Script: {instanceID: 13518}
     - Class: 114
-      Script: {instanceID: 14628}
+      Script: {instanceID: 13980}
     - Class: 114
-      Script: {instanceID: 14708}
+      Script: {instanceID: 14626}
+    - Class: 114
+      Script: {instanceID: 14630}
+    - Class: 114
+      Script: {instanceID: 14710}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -190,7 +214,7 @@ ScriptsOnlyBuild:
     className: TMP_InputField
   - hash:
       serializedVersion: 2
-      Hash: d61b1bea16d4d74af3b0916dd245a886
+      Hash: cac6b04f292f92ddfda0c79d6508705e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ShopItem
@@ -338,6 +362,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Selectable
+  - hash:
+      serializedVersion: 2
+      Hash: 49af9c6af7cd81dc9f31b818e5afc4fc
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MuseoScript
   - hash:
       serializedVersion: 2
       Hash: b3ab2106268377ffe25dd18ac23dca28
@@ -580,7 +610,7 @@ ScriptsOnlyBuild:
     className: StandaloneInputModule
   - hash:
       serializedVersion: 2
-      Hash: 504b0c4cfcba371a37ccafae78a0c87c
+      Hash: 66426656ad20ffbbb4f37bc650e93f91
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: IdleController
