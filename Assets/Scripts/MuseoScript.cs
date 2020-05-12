@@ -52,6 +52,8 @@ public class MuseoScript : MonoBehaviour
             if(si.Comprado)
             {
                 itemObject.transform.GetChild(0).GetComponent<Image>().color = Color.white;
+                itemObject.transform.GetChild(1).GetComponent<Text>().text= si.Nombre.ToString();
+                itemObject.transform.GetChild(2).GetComponent<Text>().text= si.Descripcion.ToString();
 
             }
             else 

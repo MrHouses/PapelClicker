@@ -56,6 +56,37 @@ public class IdleController : MonoBehaviour
     public Text CostoCompadre5;
     public Text GeneracionCompadre5;
     public Text NumCompadre5;
+
+
+       //--- COMPADRE 6---//
+    public GameObject Compadre6;
+    public Text CostoCompadre6;
+    public Text GeneracionCompadre6;
+    public Text NumCompadre6;
+    
+      //--- COMPADRE 7---//
+    public GameObject Compadre7;
+    public Text CostoCompadre7;
+    public Text GeneracionCompadre7;
+    public Text NumCompadre7;
+
+      //--- COMPADRE 8---//
+    public GameObject Compadre8;
+    public Text CostoCompadre8;
+    public Text GeneracionCompadre8;
+    public Text NumCompadre8;
+
+      //--- COMPADRE 9---//
+    public GameObject Compadre9;
+    public Text CostoCompadre9;
+    public Text GeneracionCompadre9;
+    public Text NumCompadre9;
+
+      //--- COMPADRE 10---//
+    public GameObject Compadre10;
+    public Text CostoCompadre10;
+    public Text GeneracionCompadre10;
+    public Text NumCompadre10;
     
 
 
@@ -88,13 +119,24 @@ public class IdleController : MonoBehaviour
          (Compadre2.GetComponent<CompadreScript>().papelXSegundoCompadre * Compadre2.GetComponent<CompadreScript>().numeroComapadres) + 
          (Compadre3.GetComponent<CompadreScript>().papelXSegundoCompadre * Compadre3.GetComponent<CompadreScript>().numeroComapadres) +
          (Compadre4.GetComponent<CompadreScript>().papelXSegundoCompadre * Compadre4.GetComponent<CompadreScript>().numeroComapadres) + 
-         (Compadre5.GetComponent<CompadreScript>().papelXSegundoCompadre * Compadre5.GetComponent<CompadreScript>().numeroComapadres)).ToString("F1") + " PAPEL/SEG";
+         (Compadre5.GetComponent<CompadreScript>().papelXSegundoCompadre * Compadre5.GetComponent<CompadreScript>().numeroComapadres) +
+         (Compadre6.GetComponent<CompadreScript>().papelXSegundoCompadre * Compadre6.GetComponent<CompadreScript>().numeroComapadres) + 
+         (Compadre7.GetComponent<CompadreScript>().papelXSegundoCompadre * Compadre7.GetComponent<CompadreScript>().numeroComapadres) + 
+         (Compadre8.GetComponent<CompadreScript>().papelXSegundoCompadre * Compadre8.GetComponent<CompadreScript>().numeroComapadres) +
+         (Compadre9.GetComponent<CompadreScript>().papelXSegundoCompadre * Compadre9.GetComponent<CompadreScript>().numeroComapadres) + 
+         (Compadre10.GetComponent<CompadreScript>().papelXSegundoCompadre * Compadre10.GetComponent<CompadreScript>().numeroComapadres)
+         ).ToString("F1") + " PAPEL/SEG";
         
         papel += (PapelxSecond + (Compadre1.GetComponent<CompadreScript>().papelXSegundoCompadre * Compadre1.GetComponent<CompadreScript>().numeroComapadres) +
          (Compadre2.GetComponent<CompadreScript>().papelXSegundoCompadre * Compadre2.GetComponent<CompadreScript>().numeroComapadres) + 
          (Compadre3.GetComponent<CompadreScript>().papelXSegundoCompadre * Compadre3.GetComponent<CompadreScript>().numeroComapadres) +
          (Compadre4.GetComponent<CompadreScript>().papelXSegundoCompadre * Compadre4.GetComponent<CompadreScript>().numeroComapadres) + 
-         (Compadre5.GetComponent<CompadreScript>().papelXSegundoCompadre * Compadre5.GetComponent<CompadreScript>().numeroComapadres) )* 
+         (Compadre5.GetComponent<CompadreScript>().papelXSegundoCompadre * Compadre5.GetComponent<CompadreScript>().numeroComapadres) +
+         (Compadre6.GetComponent<CompadreScript>().papelXSegundoCompadre * Compadre6.GetComponent<CompadreScript>().numeroComapadres) + 
+         (Compadre7.GetComponent<CompadreScript>().papelXSegundoCompadre * Compadre7.GetComponent<CompadreScript>().numeroComapadres) + 
+         (Compadre8.GetComponent<CompadreScript>().papelXSegundoCompadre * Compadre8.GetComponent<CompadreScript>().numeroComapadres) +
+         (Compadre9.GetComponent<CompadreScript>().papelXSegundoCompadre * Compadre9.GetComponent<CompadreScript>().numeroComapadres) + 
+         (Compadre10.GetComponent<CompadreScript>().papelXSegundoCompadre * Compadre10.GetComponent<CompadreScript>().numeroComapadres) )* 
          Time.deltaTime;
 
 //COMPADRE 1
@@ -121,6 +163,33 @@ public class IdleController : MonoBehaviour
         GeneracionCompadre5.text = Compadre5.GetComponent<CompadreScript>().papelXSegundoCompadre.ToString("F1") + " PAPEL/SEG";
         CostoCompadre5.text = Compadre5.GetComponent<CompadreScript>().precioCompadre.ToString("F0") + " PAPELES";
         NumCompadre5.text = "Num :"+Compadre5.GetComponent<CompadreScript>().numeroComapadres.ToString();
+
+//COMPADRE 1
+        GeneracionCompadre6.text = Compadre6.GetComponent<CompadreScript>().papelXSegundoCompadre.ToString("F1") + " PAPEL/SEG";
+        CostoCompadre6.text = Compadre6.GetComponent<CompadreScript>().precioCompadre.ToString("F0") + " PAPELES";
+        NumCompadre6.text = "Num :"+Compadre6.GetComponent<CompadreScript>().numeroComapadres.ToString();
+
+//COMPADRE 2
+        GeneracionCompadre7.text = Compadre7.GetComponent<CompadreScript>().papelXSegundoCompadre.ToString("F1") + " PAPEL/SEG";
+        CostoCompadre7.text = Compadre7.GetComponent<CompadreScript>().precioCompadre.ToString("F0") + " PAPELES";
+        NumCompadre7.text = "Num :"+Compadre7.GetComponent<CompadreScript>().numeroComapadres.ToString();
+
+//COMPADRE 1
+        GeneracionCompadre8.text = Compadre8.GetComponent<CompadreScript>().papelXSegundoCompadre.ToString("F1") + " PAPEL/SEG";
+        CostoCompadre8.text = Compadre8.GetComponent<CompadreScript>().precioCompadre.ToString("F0") + " PAPELES";
+        NumCompadre8.text = "Num :"+Compadre8.GetComponent<CompadreScript>().numeroComapadres.ToString();
+
+//COMPADRE 1
+        GeneracionCompadre9.text = Compadre9.GetComponent<CompadreScript>().papelXSegundoCompadre.ToString("F1") + " PAPEL/SEG";
+        CostoCompadre9.text = Compadre9.GetComponent<CompadreScript>().precioCompadre.ToString("F0") + " PAPELES";
+        NumCompadre9.text = "Num :"+Compadre9.GetComponent<CompadreScript>().numeroComapadres.ToString();
+
+//COMPADRE 1
+        GeneracionCompadre10.text = Compadre10.GetComponent<CompadreScript>().papelXSegundoCompadre.ToString("F1") + " PAPEL/SEG";
+        CostoCompadre10.text = Compadre10.GetComponent<CompadreScript>().precioCompadre.ToString("F0") + " PAPELES";
+        NumCompadre10.text = "Num :"+Compadre10.GetComponent<CompadreScript>().numeroComapadres.ToString();
+       
+
         Guardar();
     }
 
@@ -236,6 +305,61 @@ public class IdleController : MonoBehaviour
         }  
     }
 
+        // COMPRA DE COMPADRES 1
+    public void BuyCompadre6()
+    {
+        if(papel > Compadre6.GetComponent<CompadreScript>().precioCompadre)
+        {
+            Compadre6.GetComponent<CompadreScript>().numeroComapadres++;
+            papel -= Compadre6.GetComponent<CompadreScript>().precioCompadre;
+            Compadre6.GetComponent<CompadreScript>().precioCompadre *=1.2;
+        }  
+    }
+
+        // COMPRA DE COMPADRES 1
+    public void BuyCompadre7()
+    {
+        if(papel > Compadre7.GetComponent<CompadreScript>().precioCompadre)
+        {
+            Compadre7.GetComponent<CompadreScript>().numeroComapadres++;
+            papel -= Compadre7.GetComponent<CompadreScript>().precioCompadre;
+            Compadre7.GetComponent<CompadreScript>().precioCompadre *=1.2;
+        }  
+    }
+
+        // COMPRA DE COMPADRES 1
+    public void BuyCompadre8()
+    {
+        if(papel > Compadre8.GetComponent<CompadreScript>().precioCompadre)
+        {
+            Compadre8.GetComponent<CompadreScript>().numeroComapadres++;
+            papel -= Compadre8.GetComponent<CompadreScript>().precioCompadre;
+            Compadre8.GetComponent<CompadreScript>().precioCompadre *=1.2;
+        }  
+    }
+
+        // COMPRA DE COMPADRES 1
+    public void BuyCompadre9()
+    {
+        if(papel > Compadre9.GetComponent<CompadreScript>().precioCompadre)
+        {
+            Compadre9.GetComponent<CompadreScript>().numeroComapadres++;
+            papel -= Compadre9.GetComponent<CompadreScript>().precioCompadre;
+            Compadre9.GetComponent<CompadreScript>().precioCompadre *=1.2;
+        }  
+    }
+
+        // COMPRA DE COMPADRES 1
+    public void BuyCompadre10()
+    {
+        if(papel > Compadre10.GetComponent<CompadreScript>().precioCompadre)
+        {
+            Compadre10.GetComponent<CompadreScript>().numeroComapadres++;
+            papel -= Compadre10.GetComponent<CompadreScript>().precioCompadre;
+            Compadre10.GetComponent<CompadreScript>().precioCompadre *=1.2;
+        }  
+    }
+
 
     //GUARDAR
     public void Guardar()
@@ -265,6 +389,31 @@ public class IdleController : MonoBehaviour
        PlayerPrefs.SetString("PapelXSegundoCompadre5",Compadre5.GetComponent<CompadreScript>().papelXSegundoCompadre.ToString());
        PlayerPrefs.SetString("numeroCompadres5",Compadre5.GetComponent<CompadreScript>().numeroComapadres.ToString());
        PlayerPrefs.SetString("PrecioCompadre5",Compadre5.GetComponent<CompadreScript>().precioCompadre.ToString());
+
+        //GuardarCompadre 1
+       PlayerPrefs.SetString("PapelXSegundoCompadre6",Compadre6.GetComponent<CompadreScript>().papelXSegundoCompadre.ToString());
+       PlayerPrefs.SetString("numeroCompadres6",Compadre6.GetComponent<CompadreScript>().numeroComapadres.ToString());
+       PlayerPrefs.SetString("PrecioCompadre6",Compadre6.GetComponent<CompadreScript>().precioCompadre.ToString());
+
+ //GuardarCompadre 1
+       PlayerPrefs.SetString("PapelXSegundoCompadre7",Compadre7.GetComponent<CompadreScript>().papelXSegundoCompadre.ToString());
+       PlayerPrefs.SetString("numeroCompadres7",Compadre7.GetComponent<CompadreScript>().numeroComapadres.ToString());
+       PlayerPrefs.SetString("PrecioCompadre7",Compadre7.GetComponent<CompadreScript>().precioCompadre.ToString());
+
+ //GuardarCompadre 1
+       PlayerPrefs.SetString("PapelXSegundoCompadre8",Compadre8.GetComponent<CompadreScript>().papelXSegundoCompadre.ToString());
+       PlayerPrefs.SetString("numeroCompadres8",Compadre8.GetComponent<CompadreScript>().numeroComapadres.ToString());
+       PlayerPrefs.SetString("PrecioCompadre8",Compadre8.GetComponent<CompadreScript>().precioCompadre.ToString());
+
+ //GuardarCompadre 1
+       PlayerPrefs.SetString("PapelXSegundoCompadre9",Compadre9.GetComponent<CompadreScript>().papelXSegundoCompadre.ToString());
+       PlayerPrefs.SetString("numeroCompadres9",Compadre9.GetComponent<CompadreScript>().numeroComapadres.ToString());
+       PlayerPrefs.SetString("PrecioCompadre9",Compadre9.GetComponent<CompadreScript>().precioCompadre.ToString());
+
+ //GuardarCompadre 1
+       PlayerPrefs.SetString("PapelXSegundoCompadre10",Compadre10.GetComponent<CompadreScript>().papelXSegundoCompadre.ToString());
+       PlayerPrefs.SetString("numeroCompadres10",Compadre10.GetComponent<CompadreScript>().numeroComapadres.ToString());
+       PlayerPrefs.SetString("PrecioCompadre10",Compadre10.GetComponent<CompadreScript>().precioCompadre.ToString());
 
 
        //Guardar TIenda;
@@ -313,6 +462,27 @@ public class IdleController : MonoBehaviour
        Compadre5.GetComponent<CompadreScript>().numeroComapadres =  double.Parse(PlayerPrefs.GetString("numeroCompadres5","0"));
        Compadre5.GetComponent<CompadreScript>().precioCompadre = double.Parse(PlayerPrefs.GetString("PrecioCompadre5","150020"));
        
+       Compadre6.GetComponent<CompadreScript>().papelXSegundoCompadre = double.Parse(PlayerPrefs.GetString("PapelXSegundoCompadre6","1200"));
+       Compadre6.GetComponent<CompadreScript>().numeroComapadres =  double.Parse(PlayerPrefs.GetString("numeroCompadres6","0"));
+       Compadre6.GetComponent<CompadreScript>().precioCompadre = double.Parse(PlayerPrefs.GetString("PrecioCompadre6","1400120"));
+
+       Compadre7.GetComponent<CompadreScript>().papelXSegundoCompadre = double.Parse(PlayerPrefs.GetString("PapelXSegundoCompadre7","5500"));
+       Compadre7.GetComponent<CompadreScript>().numeroComapadres =  double.Parse(PlayerPrefs.GetString("numeroCompadres7","0"));
+       Compadre7.GetComponent<CompadreScript>().precioCompadre = double.Parse(PlayerPrefs.GetString("PrecioCompadre7","15000500"));
+
+       Compadre8.GetComponent<CompadreScript>().papelXSegundoCompadre = double.Parse(PlayerPrefs.GetString("PapelXSegundoCompadre8","10000"));
+       Compadre8.GetComponent<CompadreScript>().numeroComapadres =  double.Parse(PlayerPrefs.GetString("numeroCompadres8","0"));
+       Compadre8.GetComponent<CompadreScript>().precioCompadre = double.Parse(PlayerPrefs.GetString("PrecioCompadre8","150000000"));
+
+       Compadre9.GetComponent<CompadreScript>().papelXSegundoCompadre = double.Parse(PlayerPrefs.GetString("PapelXSegundoCompadre9","45000"));
+       Compadre9.GetComponent<CompadreScript>().numeroComapadres =  double.Parse(PlayerPrefs.GetString("numeroCompadres9","0"));
+       Compadre9.GetComponent<CompadreScript>().precioCompadre = double.Parse(PlayerPrefs.GetString("PrecioCompadre9","1500000000"));
+
+       Compadre10.GetComponent<CompadreScript>().papelXSegundoCompadre = double.Parse(PlayerPrefs.GetString("PapelXSegundoCompadre10","102000"));
+       Compadre10.GetComponent<CompadreScript>().numeroComapadres =  double.Parse(PlayerPrefs.GetString("numeroCompadres10","0"));
+       Compadre10.GetComponent<CompadreScript>().precioCompadre = double.Parse(PlayerPrefs.GetString("PrecioCompadre10","15000000000"));
+
+
 
 
 
