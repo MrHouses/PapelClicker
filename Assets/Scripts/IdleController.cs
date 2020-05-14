@@ -104,7 +104,7 @@ public class IdleController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-           audioPlayer = GetComponent<AudioSource>();
+        audioPlayer = GetComponent<AudioSource>();
         papel = 0;
         Cargar();
        
@@ -166,27 +166,27 @@ public class IdleController : MonoBehaviour
 
 //COMPADRE 1
         GeneracionCompadre6.text = Compadre6.GetComponent<CompadreScript>().papelXSegundoCompadre.ToString("F1") + " PAPEL/SEG";
-        CostoCompadre6.text = Compadre6.GetComponent<CompadreScript>().precioCompadre.ToString("F0") + " PAPELES";
+        CostoCompadre6.text = Compadre6.GetComponent<CompadreScript>().precioCompadre.ToString("F0") + " PA";
         NumCompadre6.text = "Num :"+Compadre6.GetComponent<CompadreScript>().numeroComapadres.ToString();
 
 //COMPADRE 2
         GeneracionCompadre7.text = Compadre7.GetComponent<CompadreScript>().papelXSegundoCompadre.ToString("F1") + " PAPEL/SEG";
-        CostoCompadre7.text = Compadre7.GetComponent<CompadreScript>().precioCompadre.ToString("F0") + " PAPELES";
+        CostoCompadre7.text = Compadre7.GetComponent<CompadreScript>().precioCompadre.ToString("F0") + " PA";
         NumCompadre7.text = "Num :"+Compadre7.GetComponent<CompadreScript>().numeroComapadres.ToString();
 
 //COMPADRE 1
         GeneracionCompadre8.text = Compadre8.GetComponent<CompadreScript>().papelXSegundoCompadre.ToString("F1") + " PAPEL/SEG";
-        CostoCompadre8.text = Compadre8.GetComponent<CompadreScript>().precioCompadre.ToString("F0") + " PAPELES";
+        CostoCompadre8.text = Compadre8.GetComponent<CompadreScript>().precioCompadre.ToString("F0") + " PA";
         NumCompadre8.text = "Num :"+Compadre8.GetComponent<CompadreScript>().numeroComapadres.ToString();
 
 //COMPADRE 1
         GeneracionCompadre9.text = Compadre9.GetComponent<CompadreScript>().papelXSegundoCompadre.ToString("F1") + " PAPEL/SEG";
-        CostoCompadre9.text = Compadre9.GetComponent<CompadreScript>().precioCompadre.ToString("F0") + " PAPELES";
+        CostoCompadre9.text = Compadre9.GetComponent<CompadreScript>().precioCompadre.ToString("F0") + " PA";
         NumCompadre9.text = "Num :"+Compadre9.GetComponent<CompadreScript>().numeroComapadres.ToString();
 
 //COMPADRE 1
         GeneracionCompadre10.text = Compadre10.GetComponent<CompadreScript>().papelXSegundoCompadre.ToString("F1") + " PAPEL/SEG";
-        CostoCompadre10.text = Compadre10.GetComponent<CompadreScript>().precioCompadre.ToString("F0") + " PAPELES";
+        CostoCompadre10.text = Compadre10.GetComponent<CompadreScript>().precioCompadre.ToString("F0") + " PA";
         NumCompadre10.text = "Num :"+Compadre10.GetComponent<CompadreScript>().numeroComapadres.ToString();
        
 

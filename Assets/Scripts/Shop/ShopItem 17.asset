@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 731893228802f4c4c9bbb8082f3d5d98, type: 3}
+  m_Name: ShopItem 17
+  m_EditorClassIdentifier: 
+  Precio: 14422071
+  Sprite: {fileID: 21300000, guid: 82fa6dc7a968fa54481aab818682a931, type: 3}
+  Comprado: 0
+  Nombre: Morgan
+  Descripcion: Se dice que este papel, es la llave de algun templo, pero aun no se
+    sabe cual.
