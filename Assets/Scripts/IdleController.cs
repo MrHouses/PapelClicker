@@ -1,13 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+using GoogleMobileAds.Api;
 using UnityEditor;
 using UnityEngine.UI;
 
 public class IdleController : MonoBehaviour
 {
-
-    public Text PapelText;
+    RewardBasedVideoAd ad;
+     public Text PapelText;
     public Text PapelXSegundosText;
     public double papel;
     public double TouchValue = 1;
@@ -95,18 +97,31 @@ public class IdleController : MonoBehaviour
     public GameObject PanelCompadres;
     public GameObject PanelTienda;
 
+    public GameObject PanelAnuncio;
+     
+    string appUnitId = "ca-app-pub-4609727598306757~3512860401";
         void Awake() {
 
        Sprite myFruit = Resources.Load<Sprite>("Papel");
        SkinActual.GetComponent<Image>().sprite = myFruit ;
+       MobileAds.Initialize(appUnitId);
     
        }
     // Start is called before the first frame update
+
+    string rewardID ="ca-app-pub-3940256099942544/5224354917";
+    public void PedirReward()
+    {
+        ad = RewardBasedVideoAd.Instance;
+        AdRequest pedir = new AdRequest.Builder().AddTestDevice("C5FFE9677FA0E0EBAA6D10D89F35E1A1").Build();
+        ad.LoadAd(pedir,rewardID);
+    }
     void Start()
     {
         audioPlayer = GetComponent<AudioSource>();
         papel = 0;
-        Cargar();
+        //Cargar();
+        PedirReward();
        
     }
 
@@ -143,6 +158,8 @@ public class IdleController : MonoBehaviour
         GeneracionCompadre1.text = Compadre1.GetComponent<CompadreScript>().papelXSegundoCompadre.ToString("F1") + " PAPEL/SEG";
         CostoCompadre1.text = Compadre1.GetComponent<CompadreScript>().precioCompadre.ToString("F0") + " PAPELES";
         NumCompadre1.text = "Num :"+Compadre1.GetComponent<CompadreScript>().numeroComapadres.ToString();
+
+        Compadre1.GetComponent<Image>().color = Color.black;
 
 //COMPADRE 2
         GeneracionCompadre2.text = Compadre2.GetComponent<CompadreScript>().papelXSegundoCompadre.ToString("F1") + " PAPEL/SEG";
@@ -234,6 +251,11 @@ public class IdleController : MonoBehaviour
         PanelMuseo.gameObject.SetActive(false);
     }
 
+    public void ClickAnuncio()
+    {
+        ad.Show();
+        PedirReward();
+    }
 
     // TIENDA DE UPDATES
     // COMPRA UPDATE TOUCH

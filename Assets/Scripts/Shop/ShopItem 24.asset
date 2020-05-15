@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Precio: 1289148140
   Sprite: {fileID: 21300000, guid: c04cbe68704d95f4abae685271ac3a79, type: 3}
-  Comprado: 1
+  Comprado: 0
   Nombre: "Pa\xF1ol"
   Descripcion: "El gran Pa\xF1on el recuerdo de un lugar perdido."

@@ -5,6 +5,7 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - Anuncios
     - CompadreScript
+    - GoogleMobileAds.Common.MobileAdsEventExecutor
     - IdleController
     - MuseoScript
     - ShopItem
@@ -304,7 +305,7 @@ ScriptsOnlyBuild:
     className: Mask
   - hash:
       serializedVersion: 2
-      Hash: d80920b45bedcf62c57b3cd5af8810d5
+      Hash: e8bd1e758df3e7276ec83ae1c47e2b57
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ShopScript
@@ -604,7 +605,7 @@ ScriptsOnlyBuild:
     className: StandaloneInputModule
   - hash:
       serializedVersion: 2
-      Hash: 40cb22e5728a680c78bd9cd44fdebbb9
+      Hash: c50c0c8419a6bfc782289eb16b98ac54
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: IdleController

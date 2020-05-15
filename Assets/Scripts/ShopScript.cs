@@ -14,6 +14,8 @@ public class ShopScript : MonoBehaviour
     public Image SkinActual;
     [SerializeField] public Transform shopContainer;
     [SerializeField] public GameObject shopItemPrefab;
+
+    public GameObject NoCompletas;
     
 
     // Start is called before the first frame update
@@ -81,6 +83,7 @@ public class ShopScript : MonoBehaviour
          } else {
 
                 Debug.Log("No tienes suficiente papel.");
+                NoCompletas.gameObject.SetActive(true);
          }
     }
 
@@ -91,6 +94,12 @@ public class ShopScript : MonoBehaviour
         Debug.Log(Item2.Sprite);
         GO3.GetComponent<Image>().sprite = Item2.Sprite;
 
+    }
+
+    
+    public void ClickCerrar()
+    {
+        NoCompletas.gameObject.SetActive(false);
     }
 
 

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Precio: 678499021
   Sprite: {fileID: 21300000, guid: 03f81ff761856ad4aa4db2bb2f06aede, type: 3}
-  Comprado: 1
+  Comprado: 0
   Nombre: Paperex
   Descripcion: "Paperex era la mayor amenaza en la \xE9poca de la prehistoria, su
     comida favorita es el ceviche."
