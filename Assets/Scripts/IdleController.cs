@@ -97,7 +97,12 @@ public class IdleController : MonoBehaviour
     public GameObject PanelCompadres;
     public GameObject PanelTienda;
 
+    public GameObject PanelNoCompadre;
     public GameObject PanelAnuncio;
+
+    public GameObject PanelReward;
+
+    public Text Reward;
      
     string appUnitId = "ca-app-pub-4609727598306757~3512860401";
         void Awake() {
@@ -105,6 +110,7 @@ public class IdleController : MonoBehaviour
        Sprite myFruit = Resources.Load<Sprite>("Papel");
        SkinActual.GetComponent<Image>().sprite = myFruit ;
        MobileAds.Initialize(appUnitId);
+       
     
        }
     // Start is called before the first frame update
@@ -113,9 +119,25 @@ public class IdleController : MonoBehaviour
     public void PedirReward()
     {
         ad = RewardBasedVideoAd.Instance;
+        ad.OnAdRewarded +=  HandleRewardBasedVideoRewarded;
+
         AdRequest pedir = new AdRequest.Builder().AddTestDevice("C5FFE9677FA0E0EBAA6D10D89F35E1A1").Build();
         ad.LoadAd(pedir,rewardID);
     }
+
+    public void HandleRewardBasedVideoRewarded(object sender, Reward args)
+    {
+    string type = args.Type;
+    double amount = args.Amount;
+    Reward.text ="User rewarded with: " + amount.ToString() + " " + type;
+    PanelReward.gameObject.SetActive(true);
+    }
+
+    public void closeReward()
+    {
+        PanelReward.gameObject.SetActive(false);
+    }
+
     void Start()
     {
         audioPlayer = GetComponent<AudioSource>();
@@ -158,9 +180,7 @@ public class IdleController : MonoBehaviour
         GeneracionCompadre1.text = Compadre1.GetComponent<CompadreScript>().papelXSegundoCompadre.ToString("F1") + " PAPEL/SEG";
         CostoCompadre1.text = Compadre1.GetComponent<CompadreScript>().precioCompadre.ToString("F0") + " PAPELES";
         NumCompadre1.text = "Num :"+Compadre1.GetComponent<CompadreScript>().numeroComapadres.ToString();
-
-        Compadre1.GetComponent<Image>().color = Color.black;
-
+        
 //COMPADRE 2
         GeneracionCompadre2.text = Compadre2.GetComponent<CompadreScript>().papelXSegundoCompadre.ToString("F1") + " PAPEL/SEG";
         CostoCompadre2.text = Compadre2.GetComponent<CompadreScript>().precioCompadre.ToString("F0") + " PAPELES";
@@ -215,6 +235,12 @@ public class IdleController : MonoBehaviour
         papel= papel + TouchValue;
         audioPlayer.clip = audioClick;
         audioPlayer.Play();
+    }
+
+    public void CloseNoCompadre(){
+
+            PanelNoCompadre.gameObject.SetActive(false);
+        
     }
 
      public void ClickUpdgrades()
@@ -275,111 +301,133 @@ public class IdleController : MonoBehaviour
     // COMPRA DE COMPADRES 1
     public void BuyCompadre1()
     {
-        if(papel > Compadre1.GetComponent<CompadreScript>().precioCompadre)
+        if(papel >= Compadre1.GetComponent<CompadreScript>().precioCompadre)
         {
             Compadre1.GetComponent<CompadreScript>().numeroComapadres++;
             papel -= Compadre1.GetComponent<CompadreScript>().precioCompadre;
             Compadre1.GetComponent<CompadreScript>().precioCompadre *=1.2;
-        }  
+        }  else {
+            PanelNoCompadre.gameObject.SetActive(true);
+        }
     }
 
         // COMPRA DE COMPADRES 1
     public void BuyCompadre2()
     {
-        if(papel > Compadre2.GetComponent<CompadreScript>().precioCompadre)
+        if(papel >= Compadre2.GetComponent<CompadreScript>().precioCompadre)
         {
             Compadre2.GetComponent<CompadreScript>().numeroComapadres++;
             papel -= Compadre2.GetComponent<CompadreScript>().precioCompadre;
             Compadre2.GetComponent<CompadreScript>().precioCompadre *=1.2;
-        }  
+        }  else {
+            PanelNoCompadre.gameObject.SetActive(true);
+        }
     }
 
         // COMPRA DE COMPADRES 1
     public void BuyCompadre3()
     {
-        if(papel > Compadre3.GetComponent<CompadreScript>().precioCompadre)
+        if(papel >= Compadre3.GetComponent<CompadreScript>().precioCompadre)
         {
             Compadre3.GetComponent<CompadreScript>().numeroComapadres++;
             papel -= Compadre3.GetComponent<CompadreScript>().precioCompadre;
             Compadre3.GetComponent<CompadreScript>().precioCompadre *=1.2;
-        }  
+        }  else {
+            PanelNoCompadre.gameObject.SetActive(true);
+        }
     }
 
         // COMPRA DE COMPADRES 1
     public void BuyCompadre4()
     {
-        if(papel > Compadre4.GetComponent<CompadreScript>().precioCompadre)
+        if(papel >= Compadre4.GetComponent<CompadreScript>().precioCompadre)
         {
             Compadre4.GetComponent<CompadreScript>().numeroComapadres++;
             papel -= Compadre4.GetComponent<CompadreScript>().precioCompadre;
             Compadre4.GetComponent<CompadreScript>().precioCompadre *=1.2;
-        }  
+        }  else {
+            PanelNoCompadre.gameObject.SetActive(true);
+        }
     }
 
         // COMPRA DE COMPADRES 1
     public void BuyCompadre5()
     {
-        if(papel > Compadre5.GetComponent<CompadreScript>().precioCompadre)
+        if(papel >= Compadre5.GetComponent<CompadreScript>().precioCompadre)
         {
             Compadre5.GetComponent<CompadreScript>().numeroComapadres++;
             papel -= Compadre5.GetComponent<CompadreScript>().precioCompadre;
             Compadre5.GetComponent<CompadreScript>().precioCompadre *=1.2;
         }  
+        else {
+            PanelNoCompadre.gameObject.SetActive(true);
+        }
     }
 
         // COMPRA DE COMPADRES 1
     public void BuyCompadre6()
     {
-        if(papel > Compadre6.GetComponent<CompadreScript>().precioCompadre)
+        if(papel >= Compadre6.GetComponent<CompadreScript>().precioCompadre)
         {
             Compadre6.GetComponent<CompadreScript>().numeroComapadres++;
             papel -= Compadre6.GetComponent<CompadreScript>().precioCompadre;
             Compadre6.GetComponent<CompadreScript>().precioCompadre *=1.2;
+        }
+        else {
+            PanelNoCompadre.gameObject.SetActive(true);
         }  
     }
 
         // COMPRA DE COMPADRES 1
     public void BuyCompadre7()
     {
-        if(papel > Compadre7.GetComponent<CompadreScript>().precioCompadre)
+        if(papel >= Compadre7.GetComponent<CompadreScript>().precioCompadre)
         {
             Compadre7.GetComponent<CompadreScript>().numeroComapadres++;
             papel -= Compadre7.GetComponent<CompadreScript>().precioCompadre;
             Compadre7.GetComponent<CompadreScript>().precioCompadre *=1.2;
-        }  
+        }  else {
+            PanelNoCompadre.gameObject.SetActive(true);
+        }
     }
 
         // COMPRA DE COMPADRES 1
     public void BuyCompadre8()
     {
-        if(papel > Compadre8.GetComponent<CompadreScript>().precioCompadre)
+        if(papel >= Compadre8.GetComponent<CompadreScript>().precioCompadre)
         {
             Compadre8.GetComponent<CompadreScript>().numeroComapadres++;
             papel -= Compadre8.GetComponent<CompadreScript>().precioCompadre;
             Compadre8.GetComponent<CompadreScript>().precioCompadre *=1.2;
-        }  
+        }  else {
+            PanelNoCompadre.gameObject.SetActive(true);
+        }
     }
 
         // COMPRA DE COMPADRES 1
     public void BuyCompadre9()
     {
-        if(papel > Compadre9.GetComponent<CompadreScript>().precioCompadre)
+        if(papel >= Compadre9.GetComponent<CompadreScript>().precioCompadre)
         {
             Compadre9.GetComponent<CompadreScript>().numeroComapadres++;
             papel -= Compadre9.GetComponent<CompadreScript>().precioCompadre;
             Compadre9.GetComponent<CompadreScript>().precioCompadre *=1.2;
-        }  
+        }  else {
+            PanelNoCompadre.gameObject.SetActive(true);
+        }
     }
 
         // COMPRA DE COMPADRES 1
     public void BuyCompadre10()
     {
-        if(papel > Compadre10.GetComponent<CompadreScript>().precioCompadre)
+        if(papel >= Compadre10.GetComponent<CompadreScript>().precioCompadre)
         {
             Compadre10.GetComponent<CompadreScript>().numeroComapadres++;
             papel -= Compadre10.GetComponent<CompadreScript>().precioCompadre;
             Compadre10.GetComponent<CompadreScript>().precioCompadre *=1.2;
-        }  
+        }  else {
+            PanelNoCompadre.gameObject.SetActive(true);
+        }
     }
 
 
