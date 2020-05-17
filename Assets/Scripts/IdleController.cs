@@ -89,6 +89,10 @@ public class IdleController : MonoBehaviour
     public Text CostoCompadre10;
     public Text GeneracionCompadre10;
     public Text NumCompadre10;
+
+    //
+    public Text CostoUpdate;
+    public Text ClickValue;
     
 
 
@@ -99,7 +103,6 @@ public class IdleController : MonoBehaviour
 
     public GameObject PanelNoCompadre;
     public GameObject PanelAnuncio;
-
     public GameObject PanelReward;
 
     public Text Reward;
@@ -127,14 +130,26 @@ public class IdleController : MonoBehaviour
 
     public void HandleRewardBasedVideoRewarded(object sender, Reward args)
     {
-    string type = args.Type;
-    double amount = args.Amount;
-    Reward.text ="User rewarded with: " + amount.ToString() + " " + type;
     PanelReward.gameObject.SetActive(true);
     }
 
+    IEnumerator returne(){
+        double touch_anterior = TouchValue;
+        Debug.Log(touch_anterior);
+        TouchValue = TouchValue*2;
+        Debug.Log(TouchValue);
+        yield return new WaitForSeconds(30);
+        TouchValue = touch_anterior;
+        Debug.Log(TouchValue+"HOLA");
+    }
+
+
+
+
+
     public void closeReward()
     {
+        StartCoroutine("returne");
         PanelReward.gameObject.SetActive(false);
     }
 
@@ -142,7 +157,7 @@ public class IdleController : MonoBehaviour
     {
         audioPlayer = GetComponent<AudioSource>();
         papel = 0;
-        //Cargar();
+        Cargar();
         PedirReward();
        
     }
@@ -225,6 +240,10 @@ public class IdleController : MonoBehaviour
         GeneracionCompadre10.text = Compadre10.GetComponent<CompadreScript>().papelXSegundoCompadre.ToString("F1") + " PAPEL/SEG";
         CostoCompadre10.text = Compadre10.GetComponent<CompadreScript>().precioCompadre.ToString("F0") + " PA";
         NumCompadre10.text = "Num :"+Compadre10.GetComponent<CompadreScript>().numeroComapadres.ToString();
+
+    //TouchUpdate
+        CostoUpdate.text = TouchUpdgradeCost.ToString() + " PAPEL";
+        ClickValue.text = (TouchValue * 3).ToString() + " Por Click";
        
 
         Guardar();
@@ -287,12 +306,11 @@ public class IdleController : MonoBehaviour
     // COMPRA UPDATE TOUCH
     public void BuyUpdateTouch()
     {
-        if(papel > TouchUpdgradeCost)
+        if(papel >= TouchUpdgradeCost)
         {
-            TouchUpdgradesLevel++;
             papel -=TouchUpdgradeCost;
-            TouchUpdgradeCost *=2;
-            TouchValue++;
+            TouchUpdgradeCost *=4;
+            TouchValue *=3;
         }
         
     }
@@ -435,6 +453,11 @@ public class IdleController : MonoBehaviour
     public void Guardar()
     {
        PlayerPrefs.SetString("PapelGeneral",papel.ToString());
+       PlayerPrefs.SetString("TouchValue",TouchValue.ToString());
+       PlayerPrefs.SetString("TouchCost",TouchUpdgradeCost.ToString()); 
+
+
+
        //GuardarCompadre 1
        PlayerPrefs.SetString("PapelXSegundoCompadre1",Compadre1.GetComponent<CompadreScript>().papelXSegundoCompadre.ToString());
        PlayerPrefs.SetString("numeroCompadres1",Compadre1.GetComponent<CompadreScript>().numeroComapadres.ToString());
@@ -577,6 +600,9 @@ public class IdleController : MonoBehaviour
        Sprite myFruit = Resources.Load<Sprite>(skinGuardo);
        SkinActual.GetComponent<Image>().sprite = myFruit;
 
+       TouchValue = double.Parse(PlayerPrefs.GetString("TouchValue","1"));
+
+        TouchUpdgradeCost = double.Parse(PlayerPrefs.GetString("TouchCost","500"));
     }
     
 

@@ -605,7 +605,7 @@ ScriptsOnlyBuild:
     className: StandaloneInputModule
   - hash:
       serializedVersion: 2
-      Hash: 669017d4dea5d60668ce3478a5e3bd08
+      Hash: f7795e9b61f5abed5f0f5d6730d80910
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: IdleController
