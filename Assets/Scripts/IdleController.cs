@@ -16,6 +16,11 @@ public class IdleController : MonoBehaviour
     public double TouchUpdgradesLevel = 1;
     public double TouchUpdgradeCost = 50;
     public AudioClip audioClick;
+    public AudioClip audioClickComprarCompadre;
+    public AudioClip audioCompadre;
+
+
+
     private AudioSource audioPlayer;
 
     public ParticleSystem ClickParticles;
@@ -102,10 +107,17 @@ public class IdleController : MonoBehaviour
     public GameObject PanelTienda;
 
     public GameObject PanelNoCompadre;
+
+
+    //Anuncios
     public GameObject PanelAnuncio;
     public GameObject PanelReward;
-
+    public AudioSource BonusAudio;
+    public AudioClip clipBonus;
     public Text Reward;
+
+    public GameObject BotonGeneralReward;
+    public GameObject FondoGeneralReward;
      
     string appUnitId = "ca-app-pub-4609727598306757~3512860401";
         void Awake() {
@@ -134,13 +146,29 @@ public class IdleController : MonoBehaviour
     }
 
     IEnumerator returne(){
+
+        BonusAudio.clip = clipBonus;
+        BonusAudio.Play();
         double touch_anterior = TouchValue;
-        Debug.Log(touch_anterior);
+
+        BotonGeneralReward.GetComponent<Image>().color = Color.yellow;
+        FondoGeneralReward.GetComponent<Image>().color = Color.yellow;
+
+
         TouchValue = TouchValue*2;
-        Debug.Log(TouchValue);
-        yield return new WaitForSeconds(30);
+
+        //Poner Cancion
+
+
+        yield return new WaitForSeconds(20);
+       
+
+       //QuitarCancion
+       
+        BotonGeneralReward.GetComponent<Image>().color = Color.white;
+        FondoGeneralReward.GetComponent<Image>().color = Color.white;
         TouchValue = touch_anterior;
-        Debug.Log(TouchValue+"HOLA");
+
     }
 
 
@@ -270,6 +298,8 @@ public class IdleController : MonoBehaviour
     public void ClickCompadres()
     {
         PanelCompadres.gameObject.SetActive(true);
+        audioPlayer.clip = audioCompadre;
+        audioPlayer.Play();
     }
 
      public void CloseCompadres()
@@ -324,6 +354,8 @@ public class IdleController : MonoBehaviour
             Compadre1.GetComponent<CompadreScript>().numeroComapadres++;
             papel -= Compadre1.GetComponent<CompadreScript>().precioCompadre;
             Compadre1.GetComponent<CompadreScript>().precioCompadre *=1.2;
+            audioPlayer.clip = audioClickComprarCompadre;
+            audioPlayer.Play();
         }  else {
             PanelNoCompadre.gameObject.SetActive(true);
         }
@@ -337,6 +369,8 @@ public class IdleController : MonoBehaviour
             Compadre2.GetComponent<CompadreScript>().numeroComapadres++;
             papel -= Compadre2.GetComponent<CompadreScript>().precioCompadre;
             Compadre2.GetComponent<CompadreScript>().precioCompadre *=1.2;
+            audioPlayer.clip = audioClickComprarCompadre;
+            audioPlayer.Play();
         }  else {
             PanelNoCompadre.gameObject.SetActive(true);
         }
@@ -350,6 +384,8 @@ public class IdleController : MonoBehaviour
             Compadre3.GetComponent<CompadreScript>().numeroComapadres++;
             papel -= Compadre3.GetComponent<CompadreScript>().precioCompadre;
             Compadre3.GetComponent<CompadreScript>().precioCompadre *=1.2;
+            audioPlayer.clip = audioClickComprarCompadre;
+            audioPlayer.Play();
         }  else {
             PanelNoCompadre.gameObject.SetActive(true);
         }
@@ -363,6 +399,8 @@ public class IdleController : MonoBehaviour
             Compadre4.GetComponent<CompadreScript>().numeroComapadres++;
             papel -= Compadre4.GetComponent<CompadreScript>().precioCompadre;
             Compadre4.GetComponent<CompadreScript>().precioCompadre *=1.2;
+            audioPlayer.clip = audioClickComprarCompadre;
+            audioPlayer.Play();
         }  else {
             PanelNoCompadre.gameObject.SetActive(true);
         }
@@ -376,6 +414,8 @@ public class IdleController : MonoBehaviour
             Compadre5.GetComponent<CompadreScript>().numeroComapadres++;
             papel -= Compadre5.GetComponent<CompadreScript>().precioCompadre;
             Compadre5.GetComponent<CompadreScript>().precioCompadre *=1.2;
+            audioPlayer.clip = audioClickComprarCompadre;
+            audioPlayer.Play();
         }  
         else {
             PanelNoCompadre.gameObject.SetActive(true);
@@ -390,6 +430,8 @@ public class IdleController : MonoBehaviour
             Compadre6.GetComponent<CompadreScript>().numeroComapadres++;
             papel -= Compadre6.GetComponent<CompadreScript>().precioCompadre;
             Compadre6.GetComponent<CompadreScript>().precioCompadre *=1.2;
+            audioPlayer.clip = audioClickComprarCompadre;
+            audioPlayer.Play();
         }
         else {
             PanelNoCompadre.gameObject.SetActive(true);
@@ -404,6 +446,8 @@ public class IdleController : MonoBehaviour
             Compadre7.GetComponent<CompadreScript>().numeroComapadres++;
             papel -= Compadre7.GetComponent<CompadreScript>().precioCompadre;
             Compadre7.GetComponent<CompadreScript>().precioCompadre *=1.2;
+            audioPlayer.clip = audioClickComprarCompadre;
+            audioPlayer.Play();
         }  else {
             PanelNoCompadre.gameObject.SetActive(true);
         }
@@ -417,6 +461,8 @@ public class IdleController : MonoBehaviour
             Compadre8.GetComponent<CompadreScript>().numeroComapadres++;
             papel -= Compadre8.GetComponent<CompadreScript>().precioCompadre;
             Compadre8.GetComponent<CompadreScript>().precioCompadre *=1.2;
+            audioPlayer.clip = audioClickComprarCompadre;
+            audioPlayer.Play();
         }  else {
             PanelNoCompadre.gameObject.SetActive(true);
         }
@@ -430,6 +476,8 @@ public class IdleController : MonoBehaviour
             Compadre9.GetComponent<CompadreScript>().numeroComapadres++;
             papel -= Compadre9.GetComponent<CompadreScript>().precioCompadre;
             Compadre9.GetComponent<CompadreScript>().precioCompadre *=1.2;
+            audioPlayer.clip = audioClickComprarCompadre;
+            audioPlayer.Play();
         }  else {
             PanelNoCompadre.gameObject.SetActive(true);
         }
@@ -443,6 +491,8 @@ public class IdleController : MonoBehaviour
             Compadre10.GetComponent<CompadreScript>().numeroComapadres++;
             papel -= Compadre10.GetComponent<CompadreScript>().precioCompadre;
             Compadre10.GetComponent<CompadreScript>().precioCompadre *=1.2;
+            audioPlayer.clip = audioClickComprarCompadre;
+            audioPlayer.Play();
         }  else {
             PanelNoCompadre.gameObject.SetActive(true);
         }

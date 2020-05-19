@@ -305,7 +305,7 @@ ScriptsOnlyBuild:
     className: Mask
   - hash:
       serializedVersion: 2
-      Hash: e8bd1e758df3e7276ec83ae1c47e2b57
+      Hash: 322d0c0068dd8e4fb839aef972920832
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ShopScript
@@ -605,7 +605,7 @@ ScriptsOnlyBuild:
     className: StandaloneInputModule
   - hash:
       serializedVersion: 2
-      Hash: f7795e9b61f5abed5f0f5d6730d80910
+      Hash: d21c00e774c6c2f0fe81aecc1f359508
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: IdleController

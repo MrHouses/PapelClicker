@@ -12,6 +12,10 @@ public class ShopScript : MonoBehaviour
     public Text PapelxSegundos;
     public GameObject BotonSkinActual;
     public Image SkinActual;
+    public AudioClip audioComprar; 
+
+    public AudioClip audioCompra2;
+    private AudioSource audioPlayer2;
     [SerializeField] public Transform shopContainer;
     [SerializeField] public GameObject shopItemPrefab;
 
@@ -19,8 +23,15 @@ public class ShopScript : MonoBehaviour
     
 
     // Start is called before the first frame update
+
+    private void OnDisable() {
+    audioPlayer2.clip = null;
+    }
     void Start()
     {
+        audioPlayer2 = GetComponent<AudioSource>();
+        audioPlayer2.clip = audioCompra2;
+        audioPlayer2.Play();
         PopulateShop();   
 //        SkinActual.GetComponent<Image>().sprite = BotonSkinActual.GetComponent<Image>().sprite;
     }
@@ -77,6 +88,8 @@ public class ShopScript : MonoBehaviour
                 Item.Comprado = true;
                 Contadores.GetComponent<IdleController>().papel -= Item.Precio;
                 GO.transform.GetChild(2).gameObject.SetActive(true);
+                audioPlayer2.clip = audioComprar;
+                audioPlayer2.Play();
 
             }
          
@@ -93,7 +106,8 @@ public class ShopScript : MonoBehaviour
         Debug.Log(GO3.GetComponent<Image>().sprite);
         Debug.Log(Item2.Sprite);
         GO3.GetComponent<Image>().sprite = Item2.Sprite;
-
+        audioPlayer2.clip = audioComprar;
+        audioPlayer2.Play();
     }
 
     
