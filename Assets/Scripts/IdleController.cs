@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 using GoogleMobileAds.Api;
 using UnityEditor;
 using UnityEngine.UI;
@@ -115,10 +114,12 @@ public class IdleController : MonoBehaviour
     public AudioSource BonusAudio;
     public AudioClip clipBonus;
     public Text Reward;
-
     public GameObject BotonGeneralReward;
     public GameObject FondoGeneralReward;
      
+    public GameObject BotonCompadres;
+
+    public GameObject BotonReward;
     string appUnitId = "ca-app-pub-4609727598306757~3512860401";
         void Awake() {
 
@@ -150,25 +151,35 @@ public class IdleController : MonoBehaviour
         BonusAudio.clip = clipBonus;
         BonusAudio.Play();
         double touch_anterior = TouchValue;
-
         BotonGeneralReward.GetComponent<Image>().color = Color.yellow;
         FondoGeneralReward.GetComponent<Image>().color = Color.yellow;
-
-
         TouchValue = TouchValue*2;
-
-        //Poner Cancion
-
 
         yield return new WaitForSeconds(20);
        
-
        //QuitarCancion
-       
         BotonGeneralReward.GetComponent<Image>().color = Color.white;
         FondoGeneralReward.GetComponent<Image>().color = Color.white;
         TouchValue = touch_anterior;
 
+    }
+
+
+    bool ShowWheelToPlayer()
+    {
+        if (TiempoActual  >= TiempoDesbloqueo)
+            return true;
+        else
+            return false;
+    }
+
+    System.DateTime TiempoActual = System.DateTime.Now;
+    System.DateTime TiempoDesbloqueo;
+
+    void OnWheelSpun()
+    {
+    TiempoDesbloqueo = System.DateTime.Now.AddMinutes(2);
+    PlayerPrefs.SetString("TiempoDesbloqueo", System.DateTime.Now.AddMinutes(2).ToString());
     }
 
 
@@ -190,9 +201,23 @@ public class IdleController : MonoBehaviour
        
     }
 
-    // Update is called once per frame
     void Update()
     {
+
+        //FECHAS AUNCIOS
+        TiempoActual = System.DateTime.Now;
+        if(ShowWheelToPlayer())
+        {
+            Debug.Log("Mostrar Boton");
+        }
+        else {
+            Debug.Log("No Mostrar Boton");
+        }
+
+
+
+        //---------------
+
 
         PapelText.text = "Papel: " + papel.ToString("F0");
         PapelXSegundosText.text = (PapelxSecond + (Compadre1.GetComponent<CompadreScript>().papelXSegundoCompadre * Compadre1.GetComponent<CompadreScript>().numeroComapadres) + 
@@ -328,8 +353,9 @@ public class IdleController : MonoBehaviour
 
     public void ClickAnuncio()
     {
-        ad.Show();
-        PedirReward();
+        //ad.Show();
+        //PedirReward();
+        OnWheelSpun();
     }
 
     // TIENDA DE UPDATES
@@ -582,6 +608,7 @@ public class IdleController : MonoBehaviour
     //GUARDAR
     public void Cargar()
     {
+       TiempoDesbloqueo = System.DateTime.Parse(PlayerPrefs.GetString("TiempoDesbloqueo","18/05/2020"));
        papel = double.Parse(PlayerPrefs.GetString("PapelGeneral","0"));
        //
        int lenghtShopItems = Tienda.GetComponent<ShopScript>().ShopItems.Length;
