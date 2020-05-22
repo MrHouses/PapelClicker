@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Precio: 500
   Sprite: {fileID: 21300000, guid: 0507a8b571e079244982903ec0176bf4, type: 3}
-  Comprado: 0
+  Comprado: 1
   Nombre: Jaff
   Descripcion: Jaff es un papel feliz, que simplemente espera el momento adecuado
     para ser usado.

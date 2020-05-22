@@ -9,6 +9,7 @@ public class IdleController : MonoBehaviour
 {
     RewardBasedVideoAd ad;
      public Text PapelText;
+      public Text PapelxClick;
     public Text PapelXSegundosText;
     public double papel;
     public double TouchValue = 1;
@@ -149,6 +150,7 @@ public class IdleController : MonoBehaviour
 
     public void HandleRewardBasedVideoRewarded(object sender, Reward args)
     {
+    BotonReward.interactable = false;
     PanelReward.gameObject.SetActive(true);
     }
 
@@ -207,7 +209,7 @@ public class IdleController : MonoBehaviour
     {
         audioPlayer = GetComponent<AudioSource>();
         papel = 0;
-        Cargar();
+        //Cargar();
         PedirReward();
        
     }
@@ -243,7 +245,7 @@ public class IdleController : MonoBehaviour
 
         //---------------
 
-
+        PapelxClick.text = "Por Click: "+ TouchValue.ToString();
         PapelText.text = "Papel: " + papel.ToString("F0");
         PapelXSegundosText.text = (PapelxSecond + (Compadre1.GetComponent<CompadreScript>().papelXSegundoCompadre * Compadre1.GetComponent<CompadreScript>().numeroComapadres) + 
          (Compadre2.GetComponent<CompadreScript>().papelXSegundoCompadre * Compadre2.GetComponent<CompadreScript>().numeroComapadres) + 

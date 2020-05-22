@@ -9,6 +9,8 @@ public class MuseoScript : MonoBehaviour
     [SerializeField] public Transform shopContainer;
     [SerializeField] public GameObject shopItemPrefab;
 
+    public GameObject PanelCreditos;
+
     GameObject[] enemies;
     // Start is called before the first frame update
     void Start()
@@ -31,6 +33,15 @@ public class MuseoScript : MonoBehaviour
           }
             
         
+    }
+
+    public void OpenCredits(){
+        PanelCreditos.SetActive(true);
+    }
+
+    
+    public void CloseCredits(){
+        PanelCreditos.SetActive(false);
     }
 
 
