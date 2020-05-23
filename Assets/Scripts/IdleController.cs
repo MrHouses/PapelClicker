@@ -125,6 +125,14 @@ public class IdleController : MonoBehaviour
     public Button BotonReward;
     public GameObject BotonRewardGO;
     public Text Textiempo;
+    public GameObject PanelTutorialPapel;
+
+    public GameObject PanelTutorialTienda;
+    
+    public GameObject PanelTutorialCompadres;
+    
+
+
 
     string appUnitId = "ca-app-pub-4609727598306757~3512860401";
         void Awake() {
@@ -187,12 +195,12 @@ public class IdleController : MonoBehaviour
     float Tiempo ;
     void OnWheelSpun()
     {
-    Debug.Log((System.DateTime.Now.AddMinutes(5)-TiempoActual).ToString()+ "Minutos");
-    TiempoDesbloqueo = System.DateTime.Now.AddMinutes(5);
+    Debug.Log((System.DateTime.Now.AddMinutes(15)-TiempoActual).ToString()+ "Minutos");
+    TiempoDesbloqueo = System.DateTime.Now.AddMinutes(15);
     float TiempoDel = float.Parse((TiempoDesbloqueo.Minute-TiempoActual.Minute).ToString());
     Debug.Log(TiempoDel+"Minutos");
     Tiempo = TiempoDel*60;
-    PlayerPrefs.SetString("TiempoDesbloqueo", System.DateTime.Now.AddMinutes(5).ToString());
+    PlayerPrefs.SetString("TiempoDesbloqueo", System.DateTime.Now.AddMinutes(15).ToString());
     }
 
 
