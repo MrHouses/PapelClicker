@@ -167,6 +167,7 @@ public class IdleController : MonoBehaviour
     public void HandleRewardBasedVideoRewarded(object sender, Reward args)
     {
     BotonReward.interactable = false;
+    BotonRewardGO.SetActive(false);
     PanelReward.gameObject.SetActive(true);
     }
 
@@ -183,6 +184,7 @@ public class IdleController : MonoBehaviour
         yield return new WaitForSeconds(20);
        
        //QuitarCancion
+        BotonRewardGO.SetActive(true);
         BotonGeneralReward.GetComponent<Image>().color = Color.white;
         FondoGeneralReward.GetComponent<Image>().color = Color.white;
         BotonCompadres.interactable = true;
@@ -205,10 +207,10 @@ public class IdleController : MonoBehaviour
     float Tiempo ;
     void OnWheelSpun()
     {
-    Debug.Log((System.DateTime.Now.AddMinutes(15)-TiempoActual).ToString()+ "Minutos");
+   
     TiempoDesbloqueo = System.DateTime.Now.AddMinutes(15);
     float TiempoDel = (float)(TiempoDesbloqueo-TiempoActual).TotalMinutes;
-    Debug.Log(TiempoDel+"Minutos");
+
     Tiempo = TiempoDel*60;
     PlayerPrefs.SetString("TiempoDesbloqueo", System.DateTime.Now.AddMinutes(15).ToString());
     }
@@ -252,18 +254,18 @@ public class IdleController : MonoBehaviour
         TiempoActual = System.DateTime.Now;
         if(ShowWheelToPlayer())
         {
-            Debug.Log("Mostrar Boton");
+           
             BotonRewardGO.GetComponent<Image>().sprite = DefaultButton;
             Textiempo.text = "";
             BotonReward.interactable = true;
 
         }
         else {
-            Debug.Log("No Mostrar Boton");
+            
             BotonRewardGO.GetComponent<Image>().sprite = DisableButton;
             float TiempoDel = (float)(TiempoDesbloqueo-TiempoActual).TotalMinutes;
             float TimeSeconds = (float)(TiempoDesbloqueo-TiempoActual).TotalSeconds; 
-            Debug.Log(TiempoDel+"Minutos");
+            
             Tiempo = (TiempoDel*60) + TimeSeconds;
              int min = Mathf.FloorToInt(Tiempo / 60);
              int sec = Mathf.FloorToInt(Tiempo % 60);
@@ -444,7 +446,12 @@ public class IdleController : MonoBehaviour
             papel -=TouchUpdgradeCost;
             TouchUpdgradeCost *=4;
             TouchValue *=3;
+            audioPlayer.clip = audioClickComprarCompadre;
+            audioPlayer.Play();
         }
+        else {
+            PanelNoCompadre.gameObject.SetActive(true);
+        }  
         
     }
 
@@ -679,7 +686,7 @@ public class IdleController : MonoBehaviour
        }
 
        
-       Debug.Log(SkinActual.GetComponent<Image>().sprite.ToString());
+       
        
        //GuardarSkin
        PlayerPrefs.SetString("Skin",SkinActual.GetComponent<Image>().sprite.ToString());     
@@ -759,7 +766,7 @@ public class IdleController : MonoBehaviour
        if (index > 0)
        skinGuardo = skinGuardo.Substring(0, index);
 
-       Debug.Log(skinGuardo);
+ 
        Sprite myFruit = Resources.Load<Sprite>(skinGuardo);
        SkinActual.GetComponent<Image>().sprite = myFruit;
 
@@ -775,7 +782,7 @@ public class IdleController : MonoBehaviour
     {
         float TiempoDel = (float)(TiempoDesbloqueo-TiempoActual).TotalMinutes;
         float TimeSeconds = (float)(TiempoDesbloqueo-TiempoActual).TotalSeconds;  
-        Debug.Log(TiempoDel+"Minutos");
+       
         Tiempo = (TiempoDel*60) + TimeSeconds;
     }
 

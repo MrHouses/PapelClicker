@@ -79,7 +79,7 @@ public class ShopScript : MonoBehaviour
         {
             if(Item.Comprado)
             {
-                Debug.Log("Ya lo compraste");
+                //Debug.Log("Ya lo compraste");
             }
             else 
             {
@@ -95,16 +95,16 @@ public class ShopScript : MonoBehaviour
          
          } else {
 
-                Debug.Log("No tienes suficiente papel.");
+                //Debug.Log("No tienes suficiente papel.");
                 NoCompletas.gameObject.SetActive(true);
          }
     }
 
 
     private void OnButtonClickPoner(ShopItem Item2,GameObject GO3){
-        Debug.Log("CLICK POINER");
-        Debug.Log(GO3.GetComponent<Image>().sprite);
-        Debug.Log(Item2.Sprite);
+        //Debug.Log("CLICK POINER");
+        //Debug.Log(GO3.GetComponent<Image>().sprite);
+        //Debug.Log(Item2.Sprite);
         GO3.GetComponent<Image>().sprite = Item2.Sprite;
         audioPlayer2.clip = audioComprar;
         audioPlayer2.Play();
