@@ -8,8 +8,20 @@ using UnityEngine.UI;
 public class IdleController : MonoBehaviour
 {
     RewardBasedVideoAd ad;
-     public Text PapelText;
-      public Text PapelxClick;
+
+//VARIABLES TUTORIAL
+    public int TutorialCompadres;
+    public int TutorialTienda;
+    public int TutorialGeneral;
+    public GameObject PanelTutorialPapel;
+
+    public GameObject PanelTutorialTienda;
+    
+    public GameObject PanelTutorialCompadres;
+    
+//VARIABLESE GENERALES
+    public Text PapelText;
+    public Text PapelxClick;
     public Text PapelXSegundosText;
     public double papel;
     public double TouchValue = 1;
@@ -125,11 +137,7 @@ public class IdleController : MonoBehaviour
     public Button BotonReward;
     public GameObject BotonRewardGO;
     public Text Textiempo;
-    public GameObject PanelTutorialPapel;
 
-    public GameObject PanelTutorialTienda;
-    
-    public GameObject PanelTutorialCompadres;
     
 
 
@@ -163,6 +171,7 @@ public class IdleController : MonoBehaviour
     }
 
     IEnumerator returne(){
+         BotonReward.interactable = false;
         BonusAudio.clip = clipBonus;
         BonusAudio.Play();
         double touch_anterior = TouchValue;
@@ -170,6 +179,7 @@ public class IdleController : MonoBehaviour
         FondoGeneralReward.GetComponent<Image>().color =  new Color(0.9686275f, 0.8901961f, 0.4117647f);
         TouchValue = TouchValue*2;
         BotonCompadres.interactable = false;
+
         yield return new WaitForSeconds(20);
        
        //QuitarCancion
@@ -197,7 +207,7 @@ public class IdleController : MonoBehaviour
     {
     Debug.Log((System.DateTime.Now.AddMinutes(15)-TiempoActual).ToString()+ "Minutos");
     TiempoDesbloqueo = System.DateTime.Now.AddMinutes(15);
-    float TiempoDel = float.Parse((TiempoDesbloqueo.Minute-TiempoActual.Minute).ToString());
+    float TiempoDel = (float)(TiempoDesbloqueo-TiempoActual).TotalMinutes;
     Debug.Log(TiempoDel+"Minutos");
     Tiempo = TiempoDel*60;
     PlayerPrefs.SetString("TiempoDesbloqueo", System.DateTime.Now.AddMinutes(15).ToString());
@@ -215,11 +225,23 @@ public class IdleController : MonoBehaviour
 
     void Start()
     {
+        TutorialGeneral = 0;
+        TutorialTienda = 0;
+        TutorialCompadres = 0;
+
         audioPlayer = GetComponent<AudioSource>();
         papel = 0;
-        //Cargar();
+        Cargar();
         PedirReward();
-       
+
+        if(TutorialGeneral == 0)
+        {
+            PanelTutorialPapel.SetActive(true);
+        } else {
+            PanelTutorialPapel.SetActive(false);
+        }
+
+
     }
 
     void Update()
@@ -239,13 +261,20 @@ public class IdleController : MonoBehaviour
         else {
             Debug.Log("No Mostrar Boton");
             BotonRewardGO.GetComponent<Image>().sprite = DisableButton;
-            float TiempoDel = float.Parse((TiempoDesbloqueo.Minute-TiempoActual.Minute).ToString());
-            float TimeSeconds = float.Parse((TiempoDesbloqueo.Second-TiempoActual.Second).ToString()); 
+            float TiempoDel = (float)(TiempoDesbloqueo-TiempoActual).TotalMinutes;
+            float TimeSeconds = (float)(TiempoDesbloqueo-TiempoActual).TotalSeconds; 
             Debug.Log(TiempoDel+"Minutos");
             Tiempo = (TiempoDel*60) + TimeSeconds;
              int min = Mathf.FloorToInt(Tiempo / 60);
              int sec = Mathf.FloorToInt(Tiempo % 60);
-            Textiempo.text = min+":"+sec;
+            if(sec < 10 )
+            {
+                Textiempo.text = (min+":0"+sec);
+            }
+            else {
+                Textiempo.text = (min+":"+sec);
+            }
+            
             BotonReward.interactable = false;
         }
 
@@ -346,7 +375,7 @@ public class IdleController : MonoBehaviour
 
     public void CloseNoCompadre(){
 
-            PanelNoCompadre.gameObject.SetActive(false);
+        PanelNoCompadre.gameObject.SetActive(false);
         
     }
 
@@ -360,6 +389,13 @@ public class IdleController : MonoBehaviour
         PanelCompadres.gameObject.SetActive(true);
         audioPlayer.clip = audioCompadre;
         audioPlayer.Play();
+
+        if(TutorialCompadres == 0)
+        {
+            PanelTutorialCompadres.SetActive(true);
+        } else {
+            PanelTutorialCompadres.SetActive(false);
+        }
     }
 
      public void CloseCompadres()
@@ -370,6 +406,13 @@ public class IdleController : MonoBehaviour
     public void ClickTienda()
     {
         PanelTienda.gameObject.SetActive(true);
+
+        if(TutorialTienda == 0)
+        {
+            PanelTutorialTienda.SetActive(true);
+        } else {
+            PanelTutorialTienda.SetActive(false);  
+        }
     }
 
      public void CloseTienda()
@@ -567,6 +610,11 @@ public class IdleController : MonoBehaviour
        PlayerPrefs.SetString("TouchCost",TouchUpdgradeCost.ToString()); 
 
 
+        PlayerPrefs.SetString("TutorialGeneral", TutorialGeneral.ToString());
+        PlayerPrefs.SetString("TutorialCompadres", TutorialCompadres.ToString());
+        PlayerPrefs.SetString("TutorialTienda", TutorialTienda.ToString());
+        
+
 
        //GuardarCompadre 1
        PlayerPrefs.SetString("PapelXSegundoCompadre1",Compadre1.GetComponent<CompadreScript>().papelXSegundoCompadre.ToString());
@@ -642,6 +690,10 @@ public class IdleController : MonoBehaviour
     //GUARDAR
     public void Cargar()
     {
+        TutorialGeneral = int.Parse(PlayerPrefs.GetString("TutorialGeneral","0"));
+        TutorialCompadres = int.Parse(PlayerPrefs.GetString("TutorialCompadres","0"));
+        TutorialTienda = int.Parse(PlayerPrefs.GetString("TutorialTienda","0"));
+
        TiempoDesbloqueo = System.DateTime.Parse(PlayerPrefs.GetString("TiempoDesbloqueo",System.DateTime.Now.ToString()));
        papel = double.Parse(PlayerPrefs.GetString("PapelGeneral","0"));
        //
@@ -715,13 +767,39 @@ public class IdleController : MonoBehaviour
 
         TouchUpdgradeCost = double.Parse(PlayerPrefs.GetString("TouchCost","500"));
 
-
-        float TiempoDel = float.Parse((TiempoDesbloqueo.Minute-TiempoActual.Minute).ToString());
-        float TimeSeconds = float.Parse((TiempoDesbloqueo.Second-TiempoActual.Second).ToString()); 
+        if(TiempoActual>TiempoDesbloqueo )
+    {
+        Tiempo=0;
+    }
+    else 
+    {
+        float TiempoDel = (float)(TiempoDesbloqueo-TiempoActual).TotalMinutes;
+        float TimeSeconds = (float)(TiempoDesbloqueo-TiempoActual).TotalSeconds;  
         Debug.Log(TiempoDel+"Minutos");
         Tiempo = (TiempoDel*60) + TimeSeconds;
+    }
+
+    }
 
 
+    //Metodos Cerrar Tutorial
+
+
+    public void CerrarTutorrialGeneral()
+    {
+        TutorialGeneral = 1;
+        PanelTutorialPapel.SetActive(false);
+    }
+
+    public void CerrarTutorialCompadres()
+    {
+        TutorialCompadres = 1;
+        PanelTutorialCompadres.SetActive(false);
+    }
+    public void CerrarTutorialTienda()
+    {
+        TutorialTienda = 1;
+        PanelTutorialTienda.SetActive(false);
     }
     
 

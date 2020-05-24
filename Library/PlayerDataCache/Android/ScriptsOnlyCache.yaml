@@ -65,41 +65,41 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11302}
+      Script: {instanceID: 11308}
     - Class: 114
-      Script: {instanceID: 11608}
+      Script: {instanceID: 11614}
     - Class: 114
-      Script: {instanceID: 11664}
+      Script: {instanceID: 11670}
     - Class: 114
-      Script: {instanceID: 11740}
+      Script: {instanceID: 11746}
     - Class: 114
-      Script: {instanceID: 11782}
+      Script: {instanceID: 11788}
     - Class: 114
-      Script: {instanceID: 12030}
+      Script: {instanceID: 12036}
     - Class: 114
-      Script: {instanceID: 12166}
+      Script: {instanceID: 12172}
     - Class: 114
-      Script: {instanceID: 12254}
+      Script: {instanceID: 12260}
     - Class: 114
-      Script: {instanceID: 12378}
+      Script: {instanceID: 12384}
     - Class: 114
-      Script: {instanceID: 12690}
+      Script: {instanceID: 12696}
     - Class: 114
-      Script: {instanceID: 12764}
+      Script: {instanceID: 12770}
     - Class: 114
-      Script: {instanceID: 13088}
+      Script: {instanceID: 13094}
     - Class: 114
-      Script: {instanceID: 13152}
+      Script: {instanceID: 13158}
     - Class: 114
-      Script: {instanceID: 13518}
+      Script: {instanceID: 13524}
     - Class: 114
-      Script: {instanceID: 13980}
+      Script: {instanceID: 13986}
     - Class: 114
-      Script: {instanceID: 14626}
+      Script: {instanceID: 14632}
     - Class: 114
-      Script: {instanceID: 14630}
+      Script: {instanceID: 14636}
     - Class: 114
-      Script: {instanceID: 14710}
+      Script: {instanceID: 14716}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -359,7 +359,7 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
-      Hash: 49af9c6af7cd81dc9f31b818e5afc4fc
+      Hash: c8a2b7da327125e69081c08b75cecdaf
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MuseoScript
@@ -605,7 +605,7 @@ ScriptsOnlyBuild:
     className: StandaloneInputModule
   - hash:
       serializedVersion: 2
-      Hash: 6bbed8d13f1cf5a0ed8759bcf4f0298c
+      Hash: 4f69bdcc900a8ac43b26e93b0183c400
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: IdleController
