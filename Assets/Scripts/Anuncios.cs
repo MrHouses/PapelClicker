@@ -20,7 +20,7 @@ public class Anuncios : MonoBehaviour
         //AdRequest request = new AdRequest.Builder().AddTestDevice("C5FFE9677FA0E0EBAA6D10D89F35E1A1").Build();
         //_bannerView.LoadAd(request);            
         
-        string appUnitId = "ca-app-pub-4609727598306757~3512860401";
+       
         MobileAds.Initialize(appUnitId);
         this.ad = RewardBasedVideoAd.Instance;
         this.RewardAd();
@@ -35,8 +35,8 @@ public class Anuncios : MonoBehaviour
     void RewardAd()
     {
         ad = RewardBasedVideoAd.Instance;
-        string adId ="ca-app-pub-3940256099942544/5224354917";
-        AdRequest request = new AdRequest.Builder().AddTestDevice("C5FFE9677FA0E0EBAA6D10D89F35E1A1").Build();
+        
+        
         ad.LoadAd(request,adId);
 
         if(ad.IsLoaded())
